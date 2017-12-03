@@ -20,6 +20,7 @@
 
     <button id="btn">クリック</button>
     <button id="btnB">クリック</button>
+    <button id="btnBack">クリックバック</button>
 
     <script>
     //alert('alertのテスト');
@@ -31,9 +32,11 @@
     colorValue = '#FF0000';
     var colorValueG = '#00FF00';
     var colorValueB = '#0000FF';
+    var colorValueBack = '#000000';
 
     var ttl = document.querySelector('#title');
     var subttl = document.querySelector('#subtitle');
+    var ttlback = document.querySelector('#titleback');
 
 
     console.log(ttl);
@@ -42,27 +45,31 @@
 
     //イベントがいつ発行されるか聞き耳を立てる
     //#btnがクリックされたら
+
+    changeStyle('#006699', '#00FF00', '#000000', '255,255,255, 0');
+
     document.querySelector('#btn').addEventListener('click',changeStyle);
-
-
-    changeStyle('#006699', '#00FF00');
-
-
     // 関数
-    function changeStyle(aColorValue, aColorValueG){
+    function changeStyle(aColorValue, aColorValueG, aColorValueBack, aColornone){
         // このファイルのHTMLタグの中のid'title'のCSSの文字色を#FF0000（赤）にしろ
         ttl.style.color = aColorValue;
         ttl.style.backgroundColor = aColorValueG;
-        // subttl.style.color = colorValueB;
+        // subttl.style.color = acolorValueB;
     }
 
     document.querySelector('#btnB').addEventListener('click',changeStyleSub);
-    function changeStyleSub(){
+    function changeStyle(aColorValue, aColorValueG, aColorValueBack, aColornone){
         // このファイルのHTMLタグの中のid'title'のCSSの文字色を#FF0000（赤）にしろ
-        // ttl.style.color = colorValue;
-        subttl.style.color = colorValueB;
-    }
+        // ttl.style.color = acolorValue;
+        subttl.style.color = acolorValueB;
+}
 
+    document.querySelector('#btnBack').addEventListener('click',aColorValueBack);
+    function changeStyle(aColorValue, aColorValueG, aColorValueBack, aColornone){
+        ttl.style.color = aColorValueBack;
+        ttl.style.backgroundColor =  aColornone;
+        subttl.style.color = aColorValueBack;
+}
 
     // 数値
     var numA = 10;
