@@ -2,45 +2,91 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JavaScriptの練習</title>
     <style>
-        #title{
-            /*color:#FF0000;*/
-        }
+    #title{
+        /*color:#FF000;
+        background-color: #00FF00;*/
+    }
     </style>
 </head>
 <body>
-    <h1 id="title">JAvaScriptの練習</h1>
+    <h1 id="title">JavaScriptの練習</h1>
     <h2 id="subtitle">はじめてのJS</h2>
     <ul>
         <li>Home</li>
         <li>About</li>
     </ul>
 
-    <script type="text/javascript">
+    <button id="btn">クリック</button>
+    <button id="btnB">クリック</button>
 
-    // alert('alertのテスト');
+    <script>
+    //alert('alertのテスト');
+    /*
+    console.log('コンソールのテスト');
+    */
 
-    // console.log('コンソールのテスト');
-
-    var colorValue;
+    var colorValue; // 変数
     colorValue = '#FF0000';
-
-    var colorValueR = '#FF0000';
     var colorValueG = '#00FF00';
     var colorValueB = '#0000FF';
 
     var ttl = document.querySelector('#title');
-    var sub = document.querySelector('#subtitle');
+    var subttl = document.querySelector('#subtitle');
+
 
     console.log(ttl);
 
-    //このファイルのHTMLタグのidの'tittle'のcssの文字色を#FF0000(赤)にしろ※日本語にするなら
-    ttl.style.color = colorValueR;
-    ttl.style.background = colorValueG;
-    sub.style.color = colorValueB;
+    // chageStyle();//関数の実行
+
+    //イベントがいつ発行されるか聞き耳を立てる
+    //#btnがクリックされたら
+    // document.querySelector('#btn').addEventListener('click',changeStyle);
+
+
+    // 関数
+    function changeStyle(aColorValue){
+        // このファイルのHTMLタグの中のid'title'のCSSの文字色を#FF0000（赤）にしろ
+        ttl.style.color = aColorValue;
+        ttl.style.backgroundColor = colorValueG;
+        // subttl.style.color = colorValueB;
+    }
+
+    document.querySelector('#btnB').addEventListener('click',changeStyleSub);
+    function changeStyleSub(){
+        // このファイルのHTMLタグの中のid'title'のCSSの文字色を#FF0000（赤）にしろ
+        // ttl.style.color = colorValue;
+        subttl.style.color = colorValueB;
+    }
+
+
+    // 数値
+    var numA = 10;
+    var numB = 20;
+    // - * / %（余り）
+    // 数値の計算
+    var resultC = numA + numB;
+    console.log(resultC);
+
+    var strResultC = String(resultC);
+    console.log(strResultC);
+
+    // 文字列
+    var strD = '10';
+    var resultE = numA + strD;
+    console.log(resultE);
+
+    // 文字列の結合
+    var myName = '渉';
+    var familyName = '高安';
+    var space = ' ';
+    var fullName = myName + space + familyName;
+    console.log(fullName);
+
+
+
+
 
     </script>
 </body>
