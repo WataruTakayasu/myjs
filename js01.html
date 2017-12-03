@@ -42,14 +42,17 @@
 
     //イベントがいつ発行されるか聞き耳を立てる
     //#btnがクリックされたら
-    // document.querySelector('#btn').addEventListener('click',changeStyle);
+    document.querySelector('#btn').addEventListener('click',changeStyle);
+
+
+    changeStyle('#006699', '#00FF00');
 
 
     // 関数
-    function changeStyle(aColorValue){
+    function changeStyle(aColorValue, aColorValueG){
         // このファイルのHTMLタグの中のid'title'のCSSの文字色を#FF0000（赤）にしろ
         ttl.style.color = aColorValue;
-        ttl.style.backgroundColor = colorValueG;
+        ttl.style.backgroundColor = aColorValueG;
         // subttl.style.color = colorValueB;
     }
 
