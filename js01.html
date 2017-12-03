@@ -5,12 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JavaScriptの練習</title>
+    <style>
+        #title{
+            /*color:#FF0000;*/
+        }
+    </style>
 </head>
 <body>
-    <h1>JAvaScriptの練習</h1>
+    <h1 id="title">JAvaScriptの練習</h1>
+    <h2 id="subtitle">はじめてのJS</h2>
     <ul>
         <li>Home</li>
         <li>About</li>
     </ul>
+
+    <script type="text/javascript">
+
+    // alert('alertのテスト');
+
+    // console.log('コンソールのテスト');
+
+    var colorValue;
+    colorValue = '#FF0000';
+
+    var colorValueR = '#FF0000';
+    var colorValueG = '#00FF00';
+    var colorValueB = '#0000FF';
+
+    var ttl = document.querySelector('#title');
+    var sub = document.querySelector('#subtitle');
+
+    console.log(ttl);
+
+    //このファイルのHTMLタグのidの'tittle'のcssの文字色を#FF0000(赤)にしろ※日本語にするなら
+    ttl.style.color = colorValueR;
+    ttl.style.background = colorValueG;
+    sub.style.color = colorValueB;
+
+    </script>
 </body>
 </html>
