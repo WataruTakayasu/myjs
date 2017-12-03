@@ -8,6 +8,14 @@
         /*color:#FF000;
         background-color: #00FF00;*/
     }
+    #sushiName, #sushiEle {
+        display: inline-block;
+    }
+    #sushiEle {
+        font-size: 25px;
+        color: red;
+        font-weight: bold;
+    }
     </style>
 </head>
 <body>
@@ -18,9 +26,26 @@
         <li>About</li>
     </ul>
 
-    <button id="btn">クリック</button>
-    <button id="btnB">クリック</button>
-    <button id="btnBack">クリックバック</button>
+    <button id="btn">タイトルの色を変えるお</button>
+    <button id="btnB">サブタイトルの色を変えるお</button>
+    <button id="btnBack">戻るお</button>
+
+
+
+    <div>
+        <h2 id="sushiName">ぼくの好きな寿司ネタは</h2>
+        <p1 id="sushiEle"></p1>
+        <p2 id="sushiImg"></p2>
+    </div>
+
+    <ul>
+        <li>玉子</li>
+        <li>サーモン</li>
+        <li>いくら</li>
+        <li>ウニ</li>
+    </ul>
+
+    <button id="selectBtn">ネタを選ぶお</button>
 
     <script>
     //alert('alertのテスト');
@@ -37,39 +62,133 @@
     var ttl = document.querySelector('#title');
     var subttl = document.querySelector('#subtitle');
     var ttlback = document.querySelector('#titleback');
+    var sushiTtl = document.querySelector('#sushiName');
+    var sushiEle = document.querySelector('#sushiEle');
+
+    // 色の変数
+    var ttlColor = '#ccc';
+    var ttlBackColor = '#aaa';
+    var blue = '#0000FF';
+    var black = '#000';
+
+    // ボタン
+    var selectBtn = document.querySelector('#selectBtn');
 
 
-    console.log(ttl);
+    // console.log(ttl);
 
     // chageStyle();//関数の実行
 
     //イベントがいつ発行されるか聞き耳を立てる
     //#btnがクリックされたら
 
-    changeStyle('#006699', '#00FF00', '#000000', '255,255,255, 0');
 
-    document.querySelector('#btn').addEventListener('click',changeStyle);
-    // 関数
-    function changeStyle(aColorValue, aColorValueG, aColorValueBack, aColornone){
-        // このファイルのHTMLタグの中のid'title'のCSSの文字色を#FF0000（赤）にしろ
-        ttl.style.color = aColorValue;
-        ttl.style.backgroundColor = aColorValueG;
-        // subttl.style.color = acolorValueB;
+
+    // ----------------------
+    // タイトルに色をつける処理
+    // ----------------------
+    // changeStyle('#006699', '#00FF00');
+    // // クリックした時
+    // document.querySelector('#btn').addEventListener('click',changeStyle);
+    // // 関数
+    // function changeStyle(aColorValue, aColorValueG){
+    //     console.log('1番目クリックしたお');
+    //     ttl.style.color = aColorValue;
+    //     ttl.style.backgroundColor = aColorValueG;
+    // }
+
+
+    // じょんそん
+    function changeStyle(ttlColor, ttlBackColor){
+        ttl.style.color = ttlColor;
+        ttl.style.backgroundColor = ttlBackColor;
     }
 
-    document.querySelector('#btnB').addEventListener('click',changeStyleSub);
-    function changeStyle(aColorValue, aColorValueG, aColorValueBack, aColornone){
-        // このファイルのHTMLタグの中のid'title'のCSSの文字色を#FF0000（赤）にしろ
-        // ttl.style.color = acolorValue;
-        subttl.style.color = acolorValueB;
-}
+    document.querySelector('#btn').addEventListener('click',function(){
+        console.log('クリックしたお');
+        changeStyle(ttlColor, ttlBackColor);
+    });
 
-    document.querySelector('#btnBack').addEventListener('click',aColorValueBack);
-    function changeStyle(aColorValue, aColorValueG, aColorValueBack, aColornone){
-        ttl.style.color = aColorValueBack;
-        ttl.style.backgroundColor =  aColornone;
-        subttl.style.color = aColorValueBack;
-}
+
+    // --------------------------
+    // サブタイトルに色をつける処理
+    // --------------------------
+    // changeStyleSub('#000FFF');
+    //
+    // // クリックした時
+    // document.querySelector('#btnB').addEventListener('click',changeStyleSub);
+    // // 関数
+    // function changeStyleSub(aColorValueB){
+    //     console.log('クリックしたよB');
+    //     subttl.style.color = aColorValueB;
+    // }
+
+
+    // じょんそん
+    function changeStyleSub(e){
+        subttl.style.color = e;
+    }
+
+    document.querySelector('#btnB').addEventListener('click',function(){
+        console.log('クリックしたお');
+        changeStyleSub(blue);
+    });
+
+
+    // --------------
+    // 黒色に戻す処理
+    // --------------
+    // changeStyleBack('#000000', '#FFFFFF');
+    //
+    // // クリックした時
+    // document.querySelector('#btnBack').addEventListener('click',changeStyleBack);
+    // // 関数
+    // function changeStyleBack(aColorValueBack, aColornone){
+    //     console.log('クリックしたよC');
+    //     ttl.style.color = aColorValueBack;
+    //     ttl.style.backgroundColor = aColornone;
+    //     subttl.style.color = aColorValueBack;
+    // }
+
+
+    function changeBack(black){
+        ttl.style.color = black;
+        ttl.style.backgroundColor = 'transparent';
+        subttl.style.color = black;
+    }
+
+    document.querySelector('#btnBack').addEventListener('click',function(){
+        console.log('クリックしたお');
+        changeBack(black);
+    });
+
+
+
+
+
+
+
+
+
+    // -------------------------
+    // ランダムで寿司ネタを選ぶ処理
+    // -------------------------
+    var item = ['玉子', '大トロ', '納豆巻き', 'ネギトロ'];
+    var sushiNum;
+
+    selectBtn.addEventListener('click',function(){
+        var random = Math.floor(Math.random() * item.length);
+        sushiNum = item[random];
+        console.log(sushiNum);
+    });
+
+    // --------------
+    // 寿司ネタを選ぶ処理
+    // --------------
+    selectBtn.addEventListener('click',function(){
+        // console.log('寿司えらぶお！');
+        sushiEle.textContent = sushiNum;
+    });
 
     // 数値
     var numA = 10;
@@ -91,12 +210,8 @@
     var myName = '渉';
     var familyName = '高安';
     var space = ' ';
-    var fullName = myName + space + familyName;
+    var fullName = familyName + space + myName;
     console.log(fullName);
-
-
-
-
 
     </script>
 </body>
