@@ -43,6 +43,7 @@
         <li>サーモン</li>
         <li>いくら</li>
         <li>ウニ</li>
+            <img src="img/nattou.jpg" alt="">
     </ul>
 
     <button id="selectBtn">ネタを選ぶお</button>
@@ -64,6 +65,7 @@
     var ttlback = document.querySelector('#titleback');
     var sushiTtl = document.querySelector('#sushiName');
     var sushiEle = document.querySelector('#sushiEle');
+    var sushiImg = document.querySelector('#sushiEle');
 
     // 色の変数
     var ttlColor = '#ccc';
@@ -176,10 +178,12 @@
     var item = ['玉子', '大トロ', '納豆巻き', 'ネギトロ'];
     var sushiNum;
 
+
     selectBtn.addEventListener('click',function(){
         var random = Math.floor(Math.random() * item.length);
         sushiNum = item[random];
         console.log(sushiNum);
+
     });
 
     // --------------
